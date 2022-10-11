@@ -1,0 +1,8 @@
+$table->id();
+            $table->string('title');
+            $table->text('description');
+            $table->string('url_img');
+            $table->string('nationality');
+            $table->integer('year_created');
+            $table->string('actors');
+            $table->timestamps();
