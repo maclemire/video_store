@@ -16,7 +16,7 @@
 								<div class="flex items-center space-x-4 border-b py-3">
 										<p class="font-bold uppercase">{{ $category->name }}</p>
 										<div class="">
-												<a class="bg-green-700 text-white rounded-lg font-semibold w-auto px-4 py-2" href="{{ route('categories.edit', $category->id) }}">Modifier</a>
+												<a class="bg-green-700 text-white rounded-lg font-semibold w-auto px-4 py-2" href="{{ $category->id }}/editCategory">Modifier</a>
 												<a class="bg-red-700 text-white rounded-lg font-semibold w-auto px-4 py-2" href="{{ route('categories.destroy', $category->id) }}">Delete</a>
 										</div>
 								</div>

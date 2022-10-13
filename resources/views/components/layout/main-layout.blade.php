@@ -17,6 +17,9 @@
 </head>
 <body>
   @include('components.layout.nav')
+  <div class="rounded-lg mx-auto w-1/3 px-2 text-center text-lg font-semibold bg-green-500 text-green-100">
+    {{ Session::get('status')}}
+  </div>
   {{ $slot }}
   @vite('resources/js/app.js')
 

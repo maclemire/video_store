@@ -51,6 +51,7 @@ class ListeCategoriesController extends Controller
     public function update(UpdateCategoryRequest $request, ListeCategories $category)
     {
         // dd($request->all());
+
         $request->validate([
             'name' => 'required|string|max:20|min:1'
         ]);
@@ -60,7 +61,9 @@ class ListeCategoriesController extends Controller
         ]);
 
 
-        return back()->with('status', 'La catégorie a bien été modifiée');
+        return redirect()
+            ->route('categories.home')
+            ->with('status', 'La catégorie a bien été éditée');
     }
 
 }

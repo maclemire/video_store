@@ -8,8 +8,12 @@
           <p class="pt-4"><span class="font-bold underline pr-2">Nationalité: </span>{{ $video->nationality }}</p>
           <p class="pt-4"><span class="font-bold underline pr-2">Année de création: </span>{{ $video->year_created }}</p>
           
-							<p class="font-bold text-gray-800 pt-4"><span class="text-black underline pr-2">Acteurs:
-              </span>@forelse ($video->actors as $actor){{ $actor->name }} <x-link-delete :itemId="$actor->id" linkName="X" routeName="actors.destroy" /> @endforeach</p>
+					<p class="font-bold text-gray-800 pt-4"><span class="text-black underline pr-2">
+							Acteurs:
+              </span>@forelse ($video->actors as $actor){{ $actor->name }} <x-link-delete :itemId="$actor->id" linkName="X" routeName="actors.destroy" /><span> @auth
+									
+							 <a class="bg-green-700 text-white rounded-lg font-semibold w-auto px-2 py-1" href="{{ route('actors.edit', $actor->id) }}">Mod.</a>@endauth</span> @endforeach
+					</p>
 				</div>
     </div>
     @auth

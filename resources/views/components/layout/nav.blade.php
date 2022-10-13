@@ -7,11 +7,11 @@
       <a href="{{ route('login') }}">Login</a>
       <a href="{{ route('register') }}">Register</a>
     @endguest
-      <a href="{{ route('categories.home') }}">Categories</a>
     @auth
-        <a href="{{ route('videos.create') }}">Nouveau Film</a>
-        <x-btn-logout />
-        <p>Coucou {{ Auth::user()->name }} </p>
+      <a href="{{ route('categories.home') }}">Categories</a>
+      <a href="{{ route('videos.create') }}">Nouveau Film</a>
+      <x-btn-logout />
+      <p>Coucou {{ Auth::user()->name }} </p>
     @endauth
   </div>
 </div>
