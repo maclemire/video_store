@@ -15,7 +15,8 @@ class ListeCategoriesController extends Controller
      */
     public function index()
     {
-        $categories = ListeCategories::all();
+        $categories = ListeCategories::orderBy('created_at', 'DESC')->get();
+        // $categories = ListeCategories::all();
         return view('pages.categories', compact('categories'));
     }
 
@@ -30,7 +31,7 @@ class ListeCategoriesController extends Controller
             'created_at' => now()
         ];
         ListeCategories::create($data);
-        return back()->with('status', 'Category added');
+        return back()->with('status', 'Catégorie ajoutée');
     }
 
     public function destroy($id)
@@ -40,7 +41,7 @@ class ListeCategoriesController extends Controller
             abort(404);
         }
         $category->delete();
-        return back()->with('status', "La categorie a bien été supprimée");
+        return back()->with('status', "La catégorie a bien été supprimée");
     }
 
     public function edit(ListeCategories $category)
@@ -58,6 +59,7 @@ class ListeCategoriesController extends Controller
 
         $category->update([
             'name' => $request->name,
+            'updated_at' => now()
         ]);
 
 

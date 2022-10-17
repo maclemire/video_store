@@ -22,7 +22,7 @@
 
 
         {{-- image --}}
-         <div class="py-4">
+        <div class="py-4">
           <label for="">Image :</label>
           <input class="block pt-6" type="file" name="url_img" id="">
           <x-error-msg name="url_img" />

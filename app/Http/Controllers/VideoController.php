@@ -25,7 +25,7 @@ class VideoController extends Controller
     {
         // Retreive all videos from models Video
         // $videos = video::where('is_published', 0)->orderBy('updated_at', 'desc')->limit(4)->get();
-        $videos = Video::paginate(10);
+        $videos = Video::orderBy('updated_at', 'DESC')->paginate(10);
         // Send data to View
         return view("pages.home", compact('videos'));
     }
@@ -154,9 +154,9 @@ class VideoController extends Controller
         }
 
         $request->validate([
-            'title' => 'required|min:3|string|max:20|unique:videos,title',
+            'title' => 'required|min:3|string|max:20',
             'description' => 'required|min:15|string|max:1000',
-            'url_img' => 'required|image|mimes:png,jpg,jpeg|max:2000',
+            'url_img' => 'required|sometimes|image|mimes:png,jpg,jpeg|max:2000',
             'nationality' => 'required|min:3|string|max:20',
             'year_created' => 'required|min:3|max:20',
         ]);
@@ -173,7 +173,7 @@ class VideoController extends Controller
 
 
         return redirect()
-            ->route('home')
+            ->route('videos.show', $video->id)
             ->with('status', 'Le film a bien été édité');
     }
 
